@@ -1,0 +1,14 @@
+{
+  "name": "computer-networks-i-study-room",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node server.mjs",
+    "verify": "node verify.mjs",
+    "smoke": "node browser-smoke.mjs"
+  },
+  "dependencies": {
+    "gsap": "3.15.0"
+  }
+}

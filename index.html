@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="A complete Chapter 11 Computer Networks I study room with exact-source notes, recall cards, MCQs, and slide references." />
+    <title>Computer Networks I — Study Room</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to study content</a>
+    <div class="paper-grain" aria-hidden="true"></div>
+
+    <header class="masthead">
+      <a class="brand" href="#overview" data-view-link="overview" aria-label="Computer Networks I study room home">
+        <span class="brand-mark" aria-hidden="true">11</span>
+        <span>
+          <strong>Networks I</strong>
+          <small>Chapter 11 / Computer Networks I</small>
+        </span>
+      </a>
+
+      <nav class="main-nav" aria-label="Study modes">
+        <button type="button" data-view-link="overview" aria-selected="true">Overview</button>
+        <button type="button" data-view-link="notes" aria-selected="false">Source notes</button>
+        <button type="button" data-view-link="recall" aria-selected="false">Q &amp; A</button>
+        <button type="button" data-view-link="mcq" aria-selected="false">MCQ drill</button>
+        <button type="button" data-view-link="atlas" aria-selected="false">Slide atlas</button>
+      </nav>
+
+      <div class="header-progress" aria-label="Study progress">
+        <span id="header-progress-label">0 reviewed</span>
+        <span class="progress-track"><span id="header-progress-bar"></span></span>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <section class="view is-active" id="view-overview" data-view="overview">
+        <div class="hero-shell">
+          <aside class="hero-margin" aria-hidden="true">
+            <span>11</span>
+            <p>COMPUTER NETWORKS<br />CHAPTER 11</p>
+          </aside>
+
+          <div class="hero-copy">
+            <p class="eyebrow">Chapter 11 / study materials</p>
+            <h1>Computer<br /><em>Networks I</em></h1>
+            <p class="hero-lede">Definitions, comparisons, transmission media, network devices, cloud computing, and IoT from the Chapter 11 presentation.</p>
+            <div class="hero-actions">
+              <button class="button button-primary" type="button" data-view-link="recall">Begin recall session</button>
+              <button class="button button-quiet" type="button" data-view-link="notes">Browse exact notes</button>
+            </div>
+          </div>
+
+          <aside class="source-note">
+            <span class="pin" aria-hidden="true"></span>
+            <p class="source-note-title">Chapter coverage</p>
+            <p>Computer network basics, LAN and WAN, P2P and client/server networks, transmission media, hardware, cloud computing, and IoT.</p>
+            <a href="assets/source-deck.pdf" target="_blank" rel="noreferrer">Open the source deck PDF ↗</a>
+          </aside>
+        </div>
+
+        <section class="ledger" aria-labelledby="ledger-title">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">chapter outline</p>
+              <h2 id="ledger-title">Chapter sections</h2>
+            </div>
+            <p>Five sections arranged in the same subject order as the original presentation.</p>
+          </div>
+          <div class="module-ledger" id="module-ledger"></div>
+        </section>
+
+        <section class="study-dashboard" aria-labelledby="dashboard-title">
+          <div class="dashboard-card dashboard-intro">
+            <p class="eyebrow">study materials</p>
+            <h2 id="dashboard-title">Practice and source material</h2>
+            <p>Includes all 113 slides, curated questions, multiple-choice practice, and a source-slide reference for every answer.</p>
+          </div>
+          <div class="stat-block"><strong id="stat-slides">113</strong><span>source slides</span></div>
+          <div class="stat-block"><strong id="stat-qa">—</strong><span>Q &amp; A cards</span></div>
+          <div class="stat-block"><strong id="stat-mcq">—</strong><span>multiple choice</span></div>
+          <div class="stat-block"><strong id="stat-known">0</strong><span>marked known</span></div>
+          <div class="dashboard-card dashboard-next">
+            <p class="eyebrow">next section</p>
+            <h3 id="next-study-title">Start with Foundations</h3>
+            <p id="next-study-copy">Build the vocabulary before moving to devices and cloud computing.</p>
+            <button class="text-button" type="button" data-view-link="recall">Open the question deck →</button>
+          </div>
+        </section>
+
+        <section class="knowledge-scope" aria-labelledby="scope-title">
+          <p class="eyebrow">chapter coverage</p>
+          <h2 id="scope-title">Core topics</h2>
+          <ul>
+            <li>Computer networks and communication channels</li>
+            <li>LAN, WAN, P2P, and client/server networks</li>
+            <li>Wired and wireless transmission media</li>
+            <li>NIC, switch, bridge, router, gateway, and access point</li>
+            <li>Cloud computing and Internet of Things</li>
+          </ul>
+        </section>
+      </section>
+
+      <section class="view" id="view-notes" data-view="notes" hidden>
+        <header class="page-title">
+          <div>
+            <p class="eyebrow">slide content</p>
+            <h1>Source notes</h1>
+          </div>
+          <p>Search all 113 slides. Open a page to read its exact wording beside the original slide image.</p>
+        </header>
+
+        <div class="notes-layout">
+          <aside class="filter-rail" aria-label="Notes filters">
+            <label class="search-field">
+              <span>Search terms</span>
+              <input id="notes-search" type="search" placeholder="e.g. router, LAN, cloud" autocomplete="off" />
+            </label>
+            <fieldset>
+              <legend>Module</legend>
+              <div class="filter-stack" id="notes-module-filters"></div>
+            </fieldset>
+            <label class="check-row"><input id="bookmarks-only" type="checkbox" /> Bookmarked only</label>
+            <p class="result-count" id="notes-result-count" aria-live="polite"></p>
+          </aside>
+          <div class="notes-list" id="notes-list"></div>
+        </div>
+      </section>
+
+      <section class="view" id="view-recall" data-view="recall" hidden>
+        <header class="page-title compact-title">
+          <div>
+            <p class="eyebrow">questions and answers</p>
+            <h1>Question &amp; answer</h1>
+          </div>
+          <p>Answer each question, then compare your response with the PPT answer and its supporting slide line.</p>
+        </header>
+
+        <div class="study-controls">
+          <label>Module <select id="recall-module"></select></label>
+          <label class="check-row"><input id="recall-review-only" type="checkbox" /> Review pile only</label>
+          <button class="button button-quiet" id="recall-shuffle" type="button">Shuffle cards</button>
+        </div>
+
+        <div class="recall-stage">
+          <aside class="session-margin">
+            <p class="eyebrow">session</p>
+            <strong id="recall-position" class="tabular">1 / 1</strong>
+            <span id="recall-module-label">Foundations</span>
+            <div class="tally">
+              <span><b id="recall-known-count">0</b> known</span>
+              <span><b id="recall-review-count">0</b> review</span>
+            </div>
+          </aside>
+
+          <article class="recall-card" id="recall-card">
+            <div class="card-meta">
+              <span id="recall-source">slide 1</span>
+              <button class="bookmark-button" id="recall-bookmark" type="button" aria-pressed="false">Bookmark slide</button>
+            </div>
+            <h2 id="recall-prompt">Loading question…</h2>
+            <label class="answer-draft">
+              <span>Your answer / keywords</span>
+              <textarea id="recall-draft" rows="5" placeholder="Type what you remember. Your draft is never graded automatically."></textarea>
+            </label>
+            <button class="button button-primary reveal-button" id="recall-reveal" type="button">Reveal exact PPT wording</button>
+            <div class="answer-sheet" id="recall-answer" hidden>
+              <p class="eyebrow">exact source answer</p>
+              <p id="recall-answer-text"></p>
+              <div class="source-evidence" id="recall-evidence">
+                <p class="eyebrow">supporting PPT line</p>
+                <p id="recall-source-text"></p>
+              </div>
+              <div class="answer-actions">
+                <button class="button button-good" id="recall-known" type="button">I knew this</button>
+                <button class="button button-warn" id="recall-review" type="button">Review again</button>
+                <button class="text-button" id="recall-open-slide" type="button">See source slide ↗</button>
+              </div>
+            </div>
+          </article>
+
+          <div class="card-nav">
+            <button type="button" id="recall-prev">← Previous</button>
+            <button type="button" id="recall-next">Next →</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="view" id="view-mcq" data-view="mcq" hidden>
+        <header class="page-title compact-title">
+          <div>
+            <p class="eyebrow">multiple-choice practice</p>
+            <h1>Multiple-choice drill</h1>
+          </div>
+          <p>Choose the correct concept, definition, example, or comparison from the presentation.</p>
+        </header>
+
+        <section class="quiz-setup" id="quiz-setup" aria-labelledby="quiz-setup-title">
+          <div>
+            <p class="eyebrow">question set</p>
+            <h2 id="quiz-setup-title">Select a section and question count.</h2>
+            <p>Questions are curated from the PPT. Incorrect answers are saved for review.</p>
+          </div>
+          <label>Module <select id="mcq-module"></select></label>
+          <label>Questions
+            <select id="mcq-length">
+              <option value="10">10 / quick</option>
+              <option value="25" selected>25 / focused</option>
+              <option value="50">50 / deep</option>
+              <option value="all">All available</option>
+              <option value="mistakes">Mistakes only</option>
+            </select>
+          </label>
+          <button class="button button-primary" id="quiz-start" type="button">Start the drill</button>
+        </section>
+
+        <section class="quiz-stage" id="quiz-stage" hidden aria-live="polite">
+          <div class="quiz-header">
+            <span id="quiz-progress-label" class="tabular">Question 1 / 25</span>
+            <span id="quiz-score" class="tabular">Score 0</span>
+          </div>
+          <div class="quiz-progress"><span id="quiz-progress-bar"></span></div>
+          <article class="quiz-card">
+            <p class="eyebrow" id="quiz-topic">Foundations / slide 1</p>
+            <h2 id="quiz-prompt">Loading question…</h2>
+            <div class="options-list" id="quiz-options"></div>
+            <div class="quiz-feedback" id="quiz-feedback" hidden>
+              <p class="feedback-label" id="quiz-feedback-label"></p>
+              <p id="quiz-exact-answer"></p>
+              <p class="source-evidence-text" id="quiz-source-line"></p>
+              <div class="answer-actions">
+                <button class="button button-primary" id="quiz-next" type="button">Next question</button>
+                <button class="text-button" id="quiz-open-slide" type="button">See source slide ↗</button>
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <section class="quiz-result" id="quiz-result" hidden>
+          <p class="eyebrow">session complete</p>
+          <h2 id="quiz-result-score">0 / 0</h2>
+          <p id="quiz-result-copy"></p>
+          <div class="hero-actions">
+            <button class="button button-primary" id="quiz-again" type="button">Build another set</button>
+            <button class="button button-quiet" id="quiz-mistakes" type="button">Drill mistakes</button>
+          </div>
+        </section>
+      </section>
+
+      <section class="view" id="view-atlas" data-view="atlas" hidden>
+        <header class="page-title">
+          <div>
+            <p class="eyebrow">original slides</p>
+            <h1>Slide atlas</h1>
+          </div>
+          <p>All 113 pages, rendered from the PDF export. Use this when diagrams or spatial placement help you remember.</p>
+        </header>
+        <div class="atlas-toolbar" id="atlas-filters"></div>
+        <div class="atlas-grid" id="atlas-grid"></div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>Chapter 11 / Computer Networks I</span>
+      <span>113 source slides · five chapter sections</span>
+      <a href="#overview" data-view-link="overview">Return to index ↑</a>
+    </footer>
+
+    <dialog class="slide-dialog" id="slide-dialog">
+      <div class="dialog-header">
+        <div>
+          <p class="eyebrow" id="dialog-slide-number">source slide</p>
+          <h2 id="dialog-slide-title">Slide title</h2>
+        </div>
+        <button class="dialog-close" id="dialog-close" type="button">Close ×</button>
+      </div>
+      <img id="dialog-slide-image" src="" alt="" />
+      <div class="dialog-text" id="dialog-slide-text"></div>
+    </dialog>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script src="assets/vendor/gsap.min.js"></script>
+    <script src="assets/vendor/ScrollTrigger.min.js"></script>
+    <script src="motion.js"></script>
+    <script src="assets/study-data.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
