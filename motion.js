@@ -35,7 +35,7 @@
         trigger.animation?.revert?.();
         trigger.kill(true);
       });
-    gsap.set('.module-row, .study-dashboard > *, .knowledge-scope', { clearProps: 'transform,opacity' });
+    gsap.set('.topic-card, .module-row, .study-dashboard > *, .knowledge-scope', { clearProps: 'transform,opacity' });
   }
 
   function overviewEntrance() {
@@ -53,7 +53,7 @@
   function setupOverviewScroll() {
     clearStudyTriggers();
 
-    ScrollTrigger.batch('.module-row', {
+    ScrollTrigger.batch('.topic-card, .module-row', {
       id: 'study-module-rows',
       start: 'top 90%',
       once: true,

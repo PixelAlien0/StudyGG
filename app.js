@@ -1,13 +1,34 @@
 (() => {
   'use strict';
 
-  const data = window.STUDY_DATA;
-  if (!data) {
+  const topics = {
+    concepts: window.CONCEPTS_DATA,
+    networks: window.STUDY_DATA
+  };
+  const activeTopicId = localStorage.getItem('studyg-active-topic') in topics
+    ? localStorage.getItem('studyg-active-topic')
+    : 'concepts';
+  const data = topics[activeTopicId];
+  if (!data || !topics.concepts || !topics.networks) {
     document.body.innerHTML = '<p style="padding:2rem">Study data could not be loaded.</p>';
     return;
   }
 
-  const storageKey = 'networks-i-study-state-v1';
+  const presentation = activeTopicId === 'networks'
+    ? {
+        topicNumber: 2,
+        chapter: 'Topic 2',
+        title: 'Computer Networks I',
+        heroMain: 'Computer',
+        heroAccent: 'Networks I',
+        lede: 'Definitions, comparisons, transmission media, network devices, cloud computing, and IoT from the second presentation.',
+        coverage: 'Computer network basics, LAN and WAN, P2P and client/server networks, transmission media, hardware, cloud computing, and IoT.',
+        sourcePdf: 'assets/source-deck.pdf',
+        coreTopics: ['Computer networks and communication channels', 'LAN, WAN, P2P, and client/server networks', 'Wired and wireless transmission media', 'NIC, switch, bridge, router, gateway, and access point', 'Cloud computing and Internet of Things']
+      }
+    : data.meta;
+
+  const storageKey = activeTopicId === 'networks' ? 'networks-i-study-state-v1' : 'concepts-study-state-v1';
   const defaultState = {
     known: [],
     review: [],
@@ -31,6 +52,43 @@
   const moduleName = (id) => data.modules.find((module) => module.id === id)?.label ?? 'All modules';
   const comparableText = (value) => String(value).toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
   const motion = window.StudyMotion;
+
+  function switchTopic(topicId) {
+    if (!topics[topicId] || topicId === activeTopicId) return;
+    localStorage.setItem('studyg-active-topic', topicId);
+    location.reload();
+  }
+
+  function initializeTopicUI() {
+    const number = String(presentation.topicNumber).padStart(2, '0');
+    document.title = `${presentation.title} — StudyGG`;
+    $('#topic-select').value = activeTopicId;
+    $('#topic-select').addEventListener('change', (event) => switchTopic(event.target.value));
+    $$('[data-topic-choice]').forEach((button) => {
+      const isActive = button.dataset.topicChoice === activeTopicId;
+      button.classList.toggle('is-active', isActive);
+      button.setAttribute('aria-current', isActive ? 'true' : 'false');
+      button.addEventListener('click', () => switchTopic(button.dataset.topicChoice));
+    });
+    $('#brand-mark').textContent = number;
+    $('#brand-topic').textContent = `${presentation.chapter} / ${presentation.title}`;
+    $('#hero-topic-number').textContent = number;
+    $('#hero-vertical-label').textContent = `${presentation.title.toUpperCase()} / TOPIC ${presentation.topicNumber}`;
+    $('#hero-eyebrow').textContent = `${presentation.chapter} / study materials`;
+    $('#hero-title-main').textContent = presentation.heroMain;
+    $('#hero-title-accent').textContent = presentation.heroAccent;
+    $('#hero-lede').textContent = presentation.lede;
+    $('#source-coverage').textContent = presentation.coverage;
+    $('#source-deck-link').href = presentation.sourcePdf;
+    $('#source-deck-link').textContent = `Open Topic ${presentation.topicNumber} source PDF ↗`;
+    $('#dashboard-description').textContent = `Includes all ${data.meta.slideCount} source slides, curated questions, multiple-choice practice, and a source-slide reference for every answer.`;
+    $('#core-topics').innerHTML = presentation.coreTopics.map((topic) => `<li>${topic}</li>`).join('');
+    $('#notes-description').textContent = `Search all ${data.meta.slideCount} slides. Open a page to read its exact wording beside the original slide image.`;
+    $('#atlas-description').textContent = `All ${data.meta.slideCount} pages rendered from the PDF export, including diagrams and visual examples.`;
+    $('#footer-topic').textContent = `${presentation.chapter} / ${presentation.title}`;
+    $('#footer-counts').textContent = `${data.meta.slideCount} source slides · five sections`;
+    $('#notes-search').placeholder = activeTopicId === 'concepts' ? 'e.g. RAM, printer, virus' : 'e.g. router, LAN, cloud';
+  }
 
   function saveState() {
     localStorage.setItem(storageKey, JSON.stringify(state));
@@ -445,7 +503,7 @@
 
   function initializeAtlas() {
     const toolbar = $('#atlas-filters');
-    const filters = [{ id: 'all', label: 'All 113 slides' }, ...data.modules.map((module) => ({ id: module.id, label: module.label }))];
+    const filters = [{ id: 'all', label: `All ${data.meta.slideCount} slides` }, ...data.modules.map((module) => ({ id: module.id, label: module.label }))];
     filters.forEach((filter) => {
       const button = document.createElement('button');
       button.type = 'button';
@@ -508,6 +566,7 @@
     }
   });
 
+  initializeTopicUI();
   renderOverview();
   initializeNotes();
   initializeRecall();

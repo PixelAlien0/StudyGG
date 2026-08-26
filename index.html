@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="A complete Chapter 11 Computer Networks I study room with exact-source notes, recall cards, MCQs, and slide references." />
-    <title>Computer Networks I — Study Room</title>
+    <meta name="description" content="A source-supported study website for Concepts of Computer and Computer Networks I." />
+    <title>StudyGG — Computer Studies</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -12,13 +12,21 @@
     <div class="paper-grain" aria-hidden="true"></div>
 
     <header class="masthead">
-      <a class="brand" href="#overview" data-view-link="overview" aria-label="Computer Networks I study room home">
-        <span class="brand-mark" aria-hidden="true">11</span>
+      <a class="brand" href="#overview" data-view-link="overview" aria-label="StudyGG home">
+        <span class="brand-mark" id="brand-mark" aria-hidden="true">01</span>
         <span>
-          <strong>Networks I</strong>
-          <small>Chapter 11 / Computer Networks I</small>
+          <strong>StudyGG</strong>
+          <small id="brand-topic">Topic 1 / Concepts of Computer</small>
         </span>
       </a>
+
+      <label class="topic-picker">
+        <span>Teacher PPT</span>
+        <select id="topic-select" aria-label="Choose teacher presentation">
+          <option value="concepts">Topic 1 — Concepts of Computer</option>
+          <option value="networks">Topic 2 — Computer Networks I</option>
+        </select>
+      </label>
 
       <nav class="main-nav" aria-label="Study modes">
         <button type="button" data-view-link="overview" aria-selected="true">Overview</button>
@@ -38,14 +46,14 @@
       <section class="view is-active" id="view-overview" data-view="overview">
         <div class="hero-shell">
           <aside class="hero-margin" aria-hidden="true">
-            <span>11</span>
-            <p>COMPUTER NETWORKS<br />CHAPTER 11</p>
+            <span id="hero-topic-number">01</span>
+            <p id="hero-vertical-label">CONCEPTS OF COMPUTER<br />TOPIC 1</p>
           </aside>
 
           <div class="hero-copy">
-            <p class="eyebrow">Chapter 11 / study materials</p>
-            <h1>Computer<br /><em>Networks I</em></h1>
-            <p class="hero-lede">Definitions, comparisons, transmission media, network devices, cloud computing, and IoT from the Chapter 11 presentation.</p>
+            <p class="eyebrow" id="hero-eyebrow">Topic 1 / study materials</p>
+            <h1><span id="hero-title-main">Concepts of</span><br /><em id="hero-title-accent">Computer</em></h1>
+            <p class="hero-lede" id="hero-lede">Hardware, software, computer types, devices, processing, memory, storage, and security from the first presentation.</p>
             <div class="hero-actions">
               <button class="button button-primary" type="button" data-view-link="recall">Begin recall session</button>
               <button class="button button-quiet" type="button" data-view-link="notes">Browse exact notes</button>
@@ -55,10 +63,30 @@
           <aside class="source-note">
             <span class="pin" aria-hidden="true"></span>
             <p class="source-note-title">Chapter coverage</p>
-            <p>Computer network basics, LAN and WAN, P2P and client/server networks, transmission media, hardware, cloud computing, and IoT.</p>
-            <a href="assets/source-deck.pdf" target="_blank" rel="noreferrer">Open the source deck PDF ↗</a>
+            <p id="source-coverage">Basic computer concepts, devices, processing, memory, storage, connectivity, software, and protection.</p>
+            <a id="source-deck-link" href="assets/concepts/source-deck.pdf" target="_blank" rel="noreferrer">Open Topic 1 source PDF ↗</a>
           </aside>
         </div>
+
+        <section class="topic-index" aria-labelledby="topic-index-title">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">teacher presentations</p>
+              <h2 id="topic-index-title">Study topics</h2>
+            </div>
+            <p>Choose a presentation. Each topic has separate notes, questions, MCQs, source slides, and saved progress.</p>
+          </div>
+          <div class="topic-grid">
+            <button class="topic-card" type="button" data-topic-choice="concepts">
+              <span class="topic-card-number">01</span>
+              <span><strong>Concepts of Computer</strong><small>59 slides · hardware, software, devices, processing, storage, and security</small></span>
+            </button>
+            <button class="topic-card" type="button" data-topic-choice="networks">
+              <span class="topic-card-number">02</span>
+              <span><strong>Computer Networks I</strong><small>113 slides · networks, transmission media, devices, cloud computing, and IoT</small></span>
+            </button>
+          </div>
+        </section>
 
         <section class="ledger" aria-labelledby="ledger-title">
           <div class="section-heading">
@@ -75,7 +103,7 @@
           <div class="dashboard-card dashboard-intro">
             <p class="eyebrow">study materials</p>
             <h2 id="dashboard-title">Practice and source material</h2>
-            <p>Includes all 113 slides, curated questions, multiple-choice practice, and a source-slide reference for every answer.</p>
+            <p id="dashboard-description">Includes all source slides, curated questions, multiple-choice practice, and a source-slide reference for every answer.</p>
           </div>
           <div class="stat-block"><strong id="stat-slides">113</strong><span>source slides</span></div>
           <div class="stat-block"><strong id="stat-qa">—</strong><span>Q &amp; A cards</span></div>
@@ -92,13 +120,7 @@
         <section class="knowledge-scope" aria-labelledby="scope-title">
           <p class="eyebrow">chapter coverage</p>
           <h2 id="scope-title">Core topics</h2>
-          <ul>
-            <li>Computer networks and communication channels</li>
-            <li>LAN, WAN, P2P, and client/server networks</li>
-            <li>Wired and wireless transmission media</li>
-            <li>NIC, switch, bridge, router, gateway, and access point</li>
-            <li>Cloud computing and Internet of Things</li>
-          </ul>
+          <ul id="core-topics"></ul>
         </section>
       </section>
 
@@ -108,7 +130,7 @@
             <p class="eyebrow">slide content</p>
             <h1>Source notes</h1>
           </div>
-          <p>Search all 113 slides. Open a page to read its exact wording beside the original slide image.</p>
+          <p id="notes-description">Search every slide. Open a page to read its exact wording beside the original slide image.</p>
         </header>
 
         <div class="notes-layout">
@@ -254,7 +276,7 @@
             <p class="eyebrow">original slides</p>
             <h1>Slide atlas</h1>
           </div>
-          <p>All 113 pages, rendered from the PDF export. Use this when diagrams or spatial placement help you remember.</p>
+          <p id="atlas-description">Every page rendered from the PDF export, including diagrams and visual examples.</p>
         </header>
         <div class="atlas-toolbar" id="atlas-filters"></div>
         <div class="atlas-grid" id="atlas-grid"></div>
@@ -262,8 +284,8 @@
     </main>
 
     <footer class="site-footer">
-      <span>Chapter 11 / Computer Networks I</span>
-      <span>113 source slides · five chapter sections</span>
+      <span id="footer-topic">Topic 1 / Concepts of Computer</span>
+      <span id="footer-counts">59 source slides · five sections</span>
       <a href="#overview" data-view-link="overview">Return to index ↑</a>
     </footer>
 
@@ -284,6 +306,7 @@
     <script src="assets/vendor/gsap.min.js"></script>
     <script src="assets/vendor/ScrollTrigger.min.js"></script>
     <script src="motion.js"></script>
+    <script src="assets/concepts-data.js"></script>
     <script src="assets/study-data.js"></script>
     <script src="app.js"></script>
   </body>
