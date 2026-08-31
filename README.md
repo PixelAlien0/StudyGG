@@ -25,3 +25,11 @@ You can also open `index.html` directly, although the local server gives the mos
 - Locally vendored GSAP 3.15.0 motion and ScrollTrigger reveals, with reduced-motion support
 
 Every answer is supported by a specific PPT line. Multiple-choice options are cleaned of source list labels such as `A)`, `C.`, and `3.` while preserving the teacher's wording and keywords.
+
+## PPTX to PDF converter
+
+Open `http://127.0.0.1:4173/converter.html` after running `npm run dev`.
+
+The converter runs locally on Windows and requires Microsoft PowerPoint. Uploaded PPTX files are passed to PowerPoint's PDF export engine, returned as a download, and removed from the temporary conversion directory. The local upload limit is 200 MB.
+
+The converter interface is visible on GitHub Pages, but conversion itself requires the local Node server because a static website cannot run Microsoft PowerPoint.

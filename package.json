@@ -1,12 +1,13 @@
 {
-  "name": "computer-networks-i-study-room",
+  "name": "studyg-computer-studies",
   "version": "1.0.0",
   "private": true,
   "type": "module",
   "scripts": {
     "dev": "node server.mjs",
     "verify": "node verify.mjs",
-    "smoke": "node browser-smoke.mjs"
+    "smoke": "node browser-smoke.mjs",
+    "smoke:converter": "node converter-smoke.mjs"
   },
   "dependencies": {
     "gsap": "3.15.0"

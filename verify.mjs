@@ -7,9 +7,13 @@ const root = path.dirname(fileURLToPath(import.meta.url));
 const failures = [];
 const required = [
   'index.html',
+  'converter.html',
   'styles.css',
   'app.js',
+  'converter.js',
+  'converter-smoke.mjs',
   'motion.js',
+  'tools/convert-pptx.ps1',
   'assets/concepts-data.js',
   'assets/study-data.js',
   'assets/concepts/source-deck.pdf',
@@ -70,6 +74,11 @@ const html = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
 const ids = [...html.matchAll(/\sid="([^"]+)"/g)].map((match) => match[1]);
 const duplicateIds = ids.filter((id, index) => ids.indexOf(id) !== index);
 if (duplicateIds.length) failures.push(`Duplicate HTML ids: ${[...new Set(duplicateIds)].join(', ')}`);
+const converterHtml = fs.readFileSync(path.join(root, 'converter.html'), 'utf8');
+const converterIds = [...converterHtml.matchAll(/\sid="([^"]+)"/g)].map((match) => match[1]);
+const duplicateConverterIds = converterIds.filter((id, index) => converterIds.indexOf(id) !== index);
+if (duplicateConverterIds.length) failures.push(`Duplicate converter HTML ids: ${[...new Set(duplicateConverterIds)].join(', ')}`);
+if (!html.includes('href="converter.html"')) failures.push('Main navigation does not link to the converter');
 
 if (failures.length) {
   console.error(failures.map((failure) => `FAIL: ${failure}`).join('\n'));

@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Convert PPTX presentations to PDF using Microsoft PowerPoint for high layout fidelity." />
+    <title>PPTX to PDF — StudyGG</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="converter-page">
+    <a class="skip-link" href="#converter-main">Skip to converter</a>
+    <div class="paper-grain" aria-hidden="true"></div>
+
+    <header class="masthead converter-masthead">
+      <a class="brand" href="index.html" aria-label="Return to StudyGG topics">
+        <span class="brand-mark" aria-hidden="true">PDF</span>
+        <span>
+          <strong>StudyGG</strong>
+          <small>PPTX → PDF converter</small>
+        </span>
+      </a>
+      <nav class="main-nav converter-nav" aria-label="Converter navigation">
+        <a href="index.html">Study topics</a>
+        <a href="#converter" aria-current="page">Converter</a>
+        <a href="#quality">Conversion details</a>
+      </nav>
+      <div class="engine-state" id="engine-state" aria-live="polite">
+        <span class="engine-dot" aria-hidden="true"></span>
+        <span id="engine-state-text">Checking PowerPoint…</span>
+      </div>
+    </header>
+
+    <main id="converter-main" class="converter-main">
+      <section class="converter-hero" id="converter">
+        <aside class="converter-index" aria-hidden="true">
+          <span>01</span>
+          <p>POWERPOINT EXPORT<br />PDF OUTPUT</p>
+        </aside>
+
+        <div class="converter-copy">
+          <p class="eyebrow">Microsoft PowerPoint conversion</p>
+          <h1>PPTX<br /><em>to PDF</em></h1>
+          <p class="converter-lede">Convert a PowerPoint presentation through the installed PowerPoint engine so the PDF keeps the original slide size, positioning, images, and available fonts.</p>
+        </div>
+
+        <section class="converter-panel" aria-labelledby="upload-title">
+          <div class="upload-heading">
+            <p class="eyebrow">one presentation at a time</p>
+            <h2 id="upload-title">Choose a PPTX</h2>
+          </div>
+
+          <label class="drop-zone" id="drop-zone" for="pptx-file">
+            <input id="pptx-file" type="file" accept=".pptx,application/vnd.openxmlformats-officedocument.presentationml.presentation" />
+            <span class="drop-icon" aria-hidden="true">↑</span>
+            <strong>Drop the PPTX here</strong>
+            <span>or click to browse · maximum 200 MB</span>
+          </label>
+
+          <div class="selected-file" id="selected-file" hidden>
+            <div>
+              <p class="eyebrow">selected file</p>
+              <strong id="selected-file-name"></strong>
+              <span id="selected-file-size"></span>
+            </div>
+            <button class="text-button" id="remove-file" type="button">Remove</button>
+          </div>
+
+          <button class="button button-primary converter-submit" id="convert-button" type="button" disabled>Convert and download PDF</button>
+
+          <div class="conversion-status" id="conversion-status" role="status" aria-live="polite" hidden>
+            <div class="conversion-progress"><span id="conversion-progress-bar"></span></div>
+            <p id="conversion-status-text"></p>
+          </div>
+        </section>
+      </section>
+
+      <section class="conversion-details" id="quality" aria-labelledby="quality-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">conversion details</p>
+            <h2 id="quality-title">Layout-first export</h2>
+          </div>
+          <p>The file stays on this computer during conversion and is removed from the temporary folder after the PDF response is complete.</p>
+        </div>
+        <div class="quality-grid">
+          <article><span>01</span><h3>PowerPoint engine</h3><p>The presentation is exported by Microsoft PowerPoint instead of being reconstructed in browser code.</p></article>
+          <article><span>02</span><h3>Original slide geometry</h3><p>Page size, object positions, image placement, and slide order are taken from the source presentation.</p></article>
+          <article><span>03</span><h3>Local fonts</h3><p>The export uses the fonts available on this Windows computer. Missing source fonts may still be substituted by PowerPoint.</p></article>
+          <article><span>04</span><h3>Local processing</h3><p>No third-party upload service is used. The local StudyGG server sends the file directly to PowerPoint.</p></article>
+        </div>
+      </section>
+
+      <aside class="public-note" id="public-note" hidden>
+        <p class="eyebrow">local engine required</p>
+        <h2>The public GitHub page cannot run PowerPoint.</h2>
+        <p>Download the repository on a Windows computer with Microsoft PowerPoint, run <code>npm run dev</code>, then open this converter through the local StudyGG address.</p>
+      </aside>
+    </main>
+
+    <footer class="site-footer">
+      <span>StudyGG / PPTX to PDF</span>
+      <span>Windows · Microsoft PowerPoint · local conversion</span>
+      <a href="#converter">Return to converter ↑</a>
+    </footer>
+
+    <script src="assets/vendor/gsap.min.js"></script>
+    <script src="converter.js"></script>
+  </body>
+</html>
